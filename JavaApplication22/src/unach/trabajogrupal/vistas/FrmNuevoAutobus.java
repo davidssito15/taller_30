@@ -55,7 +55,7 @@ public class FrmNuevoAutobus extends JFrame{
         pnlCentral.setLayout(new GridLayout(10, 2, 5, 5));
         pnlPie.setLayout(new GridLayout(1,2,5,5));
         
-        lblTitulo0 = new JLabel("Datos Estudiante");
+        lblTitulo0 = new JLabel("Datos ");
         
         lblCodigo= new JLabel("Código:");
         lblNombre= new JLabel("Nombre de la compania:");
@@ -108,7 +108,7 @@ public class FrmNuevoAutobus extends JFrame{
     } 
   
      public void btnAceptarActionListener(ActionEvent e){
-        IAutobus terminalDao=new AutobusImpl();
+        IAutobus autobusDao=new AutobusImpl();
         Autobus autobus =new Autobus();
 
         autobus.setCod_bus(Integer.parseInt(txtCodigo.getText()));
@@ -117,7 +117,7 @@ public class FrmNuevoAutobus extends JFrame{
         autobus.setNom_Chofer(txtChofer.getText());
         
          try{
-            if(terminalDao.insertar(autobus)>0){
+            if(autobusDao.insertar(autobus)>0){
                 JOptionPane.showMessageDialog(this,"Guardado correctamente",
                 "transaccion", JOptionPane.INFORMATION_MESSAGE);
             }else{
