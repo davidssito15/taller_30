@@ -1,15 +1,20 @@
 
 package unach.trabajogrupal.vistas;
+import unach.trabajogrupal.rnegocio.dao.*;
+import unach.trabajogrupal.rnegocio.entidades.*;
+import unach.trabajogrupal.rnegocio.impl.*;
+
 
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.*;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.List;
 
 public class FrmNuevoAutobus extends JFrame{
      private int Cod_bus;
@@ -44,7 +49,7 @@ public class FrmNuevoAutobus extends JFrame{
         setTitle("AUTOBUS....");
 	
         this.setLayout(new BorderLayout());
-        //this.setClosable(true);
+        
         pnlCentral= new JPanel();
         pnlPie= new JPanel();
         pnlCentral.setLayout(new GridLayout(10, 2, 5, 5));
@@ -81,15 +86,53 @@ public class FrmNuevoAutobus extends JFrame{
         this.add(lblTitulo0, BorderLayout.NORTH);
         this.add(pnlCentral, BorderLayout.CENTER);
         this.add(pnlPie, BorderLayout.SOUTH); 
+        
+        
+        btnAceptar.addActionListener(new ActionListener() {           
+             @Override
+             public void actionPerformed(ActionEvent e) {
+                  try {
+                      btnAceptarActionListener(e);
+                } catch (Exception ex) {
+                    System.out.println("Error:"+ex.getMessage());
+                }
+             }
+
+             
+        });
     }
     
     public static void main(String[] args) {
         FrmNuevoAutobus frmMenu= new FrmNuevoAutobus();
         frmMenu.setVisible(true);
-//    } 
-    
+    } 
+  
+     public void btnAceptarActionListener(ActionEvent e){
+        IAutobus terminalDao=new AutobusImpl();
+        Autobus autobus =new Autobus();
 
+        autobus.setCod_bus(Integer.parseInt(txtCodigo.getText()));
+        autobus.setNombreCompania(txtNombre.getText());
+        autobus.setN_placa(txtPlaca.getText());
+        autobus.setNom_Chofer(txtChofer.getText());
+        
+         try{
+            if(terminalDao.insertar(autobus)>0){
+                JOptionPane.showMessageDialog(this,"Guardado correctamente",
+                "transaccion", JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                JOptionPane.showMessageDialog(this,"Error desconocido",
+                "error", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }catch(Exception ex){
+             JOptionPane.showMessageDialog(this,"Error desconocido: "+ex.getMessage(),
+                    "Error", JOptionPane.ERROR_MESSAGE);
+        }
+   
     }
-
 }
+
+
+
+
 
