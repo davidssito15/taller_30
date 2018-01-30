@@ -49,7 +49,7 @@ public class FrmListaTerminal extends JInternalFrame{
             
            for(Terminal est:lista){
               modelo.addRow(new Object[]{est.getCod_terminal(),
-              est.getNombre(),est.getDireccion(),est.getCiudad(),est.getCiudad()});
+              est.getNombre(),est.getDireccion(),est.getCiudad(),est.getTelefono()});
       
     }
            tabla.setModel(modelo);
