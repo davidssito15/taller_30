@@ -17,11 +17,6 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 public class FrmNuevoTerminal extends JFrame{
     
-//     private int Cod_terminal;
-//    private String Nombre;
-//    private String Direccion;
-//    private String Ciudad;
-//    private String Telefono;
        
     JLabel lblCodigo;
     JLabel lblNombre;
@@ -107,55 +102,30 @@ public class FrmNuevoTerminal extends JFrame{
         this.add(pnlPie, BorderLayout.SOUTH);        
     }
     public static void main(String[] args) {
-        FrmNuevoTerminal frmMenu= new FrmNuevoTerminal();
-        frmMenu.setVisible(true);
-//    } 
-//    public void cargarCursos(){
-//        ICurso cursoDao = new CursoImpl();
-//        try {
-//            lstCurso = cursoDao.obtener();
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(this,"Error al cargar los cursos!!",
-//                "Error"+e.getMessage(), JOptionPane.ERROR_MESSAGE);
-//        }
-//        
-//    }
-//    public void btnAceptarActionListener(ActionEvent e){
-//        IEstudiante estudianteDao=new EstudianteImpl();
-//        Estudiante estudiante =new Estudiante();
-//
-//        estudiante.setCodigo(Integer.parseInt(txtCodigo.getText()));
-//        estudiante.setCedula(txtCedula.getText());
-//        estudiante.setNombres(txtNombres.getText());
-//        estudiante.setApellidos(txtApellidos.getText());
-//        
-//        DateFormat formatoFecha=new SimpleDateFormat("yyy-mm-dd");
-//        try{
-//            estudiante.setFecha_nac(formatoFecha.parse(txtFechaNac.getText()));
-//            estudiante.setFecha_ing(formatoFecha.parse(txtFechaIng.getText()));
-//        }catch(Exception ex){
-//        JOptionPane.showMessageDialog(this,"Error en La fecha",
-//                "error", JOptionPane.INFORMATION_MESSAGE);
-//        }
-//        
-//        estudiante.setTelefono(txtTelefono.getText());
-//        estudiante.setSexo(cmbSexo.getSelectedIndex()==0?"m":"f");
-//        estudiante.setCurso((Curso)cmbCurso.getSelectedItem());
-//        
-//        try{
-//            if(estudianteDao.insertar(estudiante)>0){
-//                JOptionPane.showMessageDialog(this,"Guardado correctamente",
-//                "transaccion", JOptionPane.INFORMATION_MESSAGE);
-//            }else{
-//                JOptionPane.showMessageDialog(this,"Error desconocido",
-//                "error", JOptionPane.INFORMATION_MESSAGE);
-//            }
-//        }catch(Exception ex){
-//             JOptionPane.showMessageDialog(this,"Error desconocido: "+ex.getMessage(),
-//                    "Error", JOptionPane.ERROR_MESSAGE);
-//        }
-//    }
-}
- 
-    
+        FrmNuevoTerminal frmT= new FrmNuevoTerminal();
+        frmT.setVisible(true);
+    } 
+// 
+    public void btnAceptarActionListener(ActionEvent e){
+        ITerminal terminalDao=new TerminalImpl();
+        Terminal terminal =new Terminal();
+
+        terminal.setCod_terminal(Integer.parseInt(txtCodigo.getText()));
+        terminal.setNombre(txtNombre.getText());
+        terminal.setDireccion(txtDireccion.getText());
+        terminal.setCiudad(txtCiudad.getText());
+        terminal.setTelefono(txtTelefono.getText());
+         try{
+            if(terminalDao.insertar(terminal)>0){
+                JOptionPane.showMessageDialog(this,"Guardado correctamente",
+                "transaccion", JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                JOptionPane.showMessageDialog(this,"Error desconocido",
+                "error", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }catch(Exception ex){
+             JOptionPane.showMessageDialog(this,"Error desconocido: "+ex.getMessage(),
+                    "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 }
