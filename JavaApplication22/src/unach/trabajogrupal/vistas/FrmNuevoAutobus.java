@@ -53,9 +53,9 @@ public class FrmNuevoAutobus extends JFrame{
         lblTitulo0 = new JLabel("Datos Estudiante");
         
         lblCodigo= new JLabel("Código:");
-        lblNombre= new JLabel("Nombres:");
-        lblPlaca= new JLabel("Direccion:");
-        lblChofer= new JLabel("Ciudad:");      
+        lblNombre= new JLabel("Nombre de la compania:");
+        lblPlaca= new JLabel("Placa:");
+        lblChofer= new JLabel("Chofer:");      
         
         
         txtCodigo = new JTextField(2);
@@ -66,7 +66,7 @@ public class FrmNuevoAutobus extends JFrame{
         btnLimpiar= new JButton("Limpiar");
         btnAceptar= new JButton("Aceptar");
         
-        pnlCentral.setBackground(Color.blue);
+        pnlCentral.setBackground(Color.CYAN);
         
         pnlCentral.add(lblCodigo);
         pnlCentral.add(txtCodigo);
