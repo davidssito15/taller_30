@@ -63,7 +63,7 @@ public class FrmMenuPrincipal extends JFrame {
         mniListaTerminal.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mniListaTerminalPerdormed(e);
+              //  mniListaTerminalPerdormed(e);
             }
         });
 
@@ -71,7 +71,7 @@ public class FrmMenuPrincipal extends JFrame {
         mniNuevoAutobus.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mniNuevoAutobus ActionPerformed(e
+            //    mniNuevoAutobus ActionPerformed(e
             
             }
         });
@@ -82,7 +82,7 @@ public class FrmMenuPrincipal extends JFrame {
         mniNuevoRegistro.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mniNuevoRegistroActionPerformed(e);
+              //  mniNuevoRegistroActionPerformed(e);
             }
         });
         mniModificaRegistro = new JMenuItem("Modifica");
@@ -92,7 +92,7 @@ public class FrmMenuPrincipal extends JFrame {
         mniListaRegistro.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mniListaRegistroActionPerdormed(e);
+               // mniListaRegistroActionPerdormed(e);
             }
         });
 
