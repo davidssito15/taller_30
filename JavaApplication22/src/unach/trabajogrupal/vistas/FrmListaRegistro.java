@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package unach.trabajogrupal.vistas;
 import unach.trabajogrupal.rnegocio.dao.*;
 import unach.trabajogrupal.rnegocio.impl.*;
@@ -16,10 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Segovia
- */
+
 public class FrmListaRegistro extends JInternalFrame{
     JLabel lblTitulo;
     JTable tabla;

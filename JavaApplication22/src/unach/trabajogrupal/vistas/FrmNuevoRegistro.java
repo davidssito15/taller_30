@@ -13,7 +13,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
-public class FrmNuevoRegistro extends JInternalFrame{    
+public class FrmNuevoRegistro extends JFrame{    
     List<Autobus> lstAutobus;
     JComboBox<Autobus> cmbAutobus;
     
@@ -65,7 +65,7 @@ public class FrmNuevoRegistro extends JInternalFrame{
         btnLimpiar= new JButton("Limpiar");
         btnAceptar= new JButton("Aceptar");
         
-        pnlCentral.setBackground(Color.green);
+        pnlCentral.setBackground(Color.CYAN);
         
         pnlCentral.add(lblAutobus);
         pnlCentral.add(cmbAutobus);
@@ -105,7 +105,7 @@ public class FrmNuevoRegistro extends JInternalFrame{
         try {
             lstAutobus = autobusDao.obtener();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this,"Error al cargar los cursos!!",
+            JOptionPane.showMessageDialog(this,"Error al cargar los Registros!!",
                 "Error"+e.getMessage(), JOptionPane.ERROR_MESSAGE);
         }
         
@@ -116,7 +116,7 @@ public class FrmNuevoRegistro extends JInternalFrame{
         try {
             lstTerminal = terminalDao.obtener();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this,"Error al cargar los cursos!!",
+            JOptionPane.showMessageDialog(this,"Error al cargar el Terminal!!",
                 "Error"+e.getMessage(), JOptionPane.ERROR_MESSAGE);
         }
         
@@ -128,7 +128,6 @@ public class FrmNuevoRegistro extends JInternalFrame{
 
         registro.setAutobus((Autobus)cmbAutobus.getSelectedItem());
         registro.setTerminal((Terminal)cmbTerminal.getSelectedItem());
-       
         registro.setFecha(txtFecha.getText());
         registro.setHora(txtHora.getText());
         

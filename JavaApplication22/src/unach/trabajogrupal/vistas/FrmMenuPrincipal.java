@@ -130,7 +130,7 @@ public class FrmMenuPrincipal extends JFrame {
         mniListaTerminal.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-              //  mniListaTerminalActionPerformed(e);
+                mniListaTerminalActionPerformed(e);
             }
         });
         
@@ -157,10 +157,16 @@ public class FrmMenuPrincipal extends JFrame {
         this.setExtendedState(MAXIMIZED_BOTH); //Para maximizar
         this.setDefaultCloseOperation(EXIT_ON_CLOSE); //Para terminar el programa
     }
-    public void mniListaTerminlActionPerformed(ActionEvent e){
-        FrmListaTerminal frmD=new FrmListaTerminal();
-        dkpEscritorio.add(frmD);
-        frmD.setVisible(true);
+    
+    public void mniListaAutobusActionPerformed(ActionEvent e){
+        FrmListaAutobus frm=new FrmListaAutobus();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+     }
+    public void mniListaTerminalActionPerformed(ActionEvent e){
+        FrmListaTerminal frm=new FrmListaTerminal();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
      } 
     
     public void mniListaRegistroActionPerformed(ActionEvent e){
@@ -168,18 +174,12 @@ public class FrmMenuPrincipal extends JFrame {
         dkpEscritorio.add(frm);
         frm.setVisible(true);
      } 
-    public void mniListaAutobusActionPerformed(ActionEvent e){
-        FrmListaAutobus frm=new FrmListaAutobus();
+   public void mniNuevoTerminalActionPerformed(ActionEvent e){
+        FrmNuevoTerminal frm=new FrmNuevoTerminal();
         dkpEscritorio.add(frm);
         frm.setVisible(true);
-     }
-      
-    
-    public void mniNuevoTerminalActionPerformed(ActionEvent e){
-        FrmNuevoTerminal frmM=new FrmNuevoTerminal();
-        dkpEscritorio.add(frmM);
-        frmM.setVisible(true);
-     }    
+     } 
+     
      public void mniNuevoRegistroActionPerformed(ActionEvent e){
         FrmNuevoRegistro frm = new FrmNuevoRegistro();
         dkpEscritorio.add(frm);
