@@ -23,7 +23,7 @@ public class TerminalTest {
  
         int filasAfectadas =0;
         ITerminal terminalDao = new TerminalImpl();
-        Terminal terminal = new Terminal(2,"Quitumbe"," Sucre","Quito","3988200");
+        Terminal terminal = new Terminal(1,"Quitumbe"," Sucre","Quito","3988200");
         try{
             filasAfectadas = terminalDao.insertar(terminal);
             System.out.println("Terminal ingresado!!!\n");

@@ -51,7 +51,7 @@ public class FrmNuevoTerminal extends JInternalFrame{
         pnlCentral.setLayout(new GridLayout(10, 2, 5, 5));
         pnlPie.setLayout(new GridLayout(1,2,5,5));
         
-        lblTitulo0 = new JLabel("Datos Estudiante");
+        lblTitulo0 = new JLabel("Datos Terminal");
         
         lblCodigo= new JLabel("Código:");
         lblNombre= new JLabel("Nombres:");
@@ -87,7 +87,7 @@ public class FrmNuevoTerminal extends JInternalFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-              //      btnAceptarActionListener(e);
+                   btnAceptarActionListener(e);
                 } catch (Exception ex) {
                     System.out.println("Error:"+ex.getMessage());
                 }

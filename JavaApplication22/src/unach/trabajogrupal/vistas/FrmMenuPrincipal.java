@@ -86,7 +86,7 @@ public class FrmMenuPrincipal extends JFrame {
         mnAutobus.add(mniListaAutobus);
         
         
-         mnRegistro= new JMenu("Registro");
+        mnRegistro= new JMenu("Registro");
         mniNuevoRegistro= new JMenuItem("Nuevo");
         mniNuevoRegistro.addActionListener(new ActionListener() {
             @Override
@@ -115,7 +115,7 @@ public class FrmMenuPrincipal extends JFrame {
         
         
         
-          mnTerminal= new JMenu("Autobus");
+        mnTerminal= new JMenu("Terminal");
         mniNuevoTerminal= new JMenuItem("Nuevo");
         mniNuevoTerminal.addActionListener(new ActionListener() {
             @Override

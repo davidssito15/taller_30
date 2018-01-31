@@ -16,7 +16,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
-public class FrmNuevoAutobus extends JFrame{
+public class FrmNuevoAutobus extends JInternalFrame{
      private int Cod_bus;
     private String NombreCompania; 
     private String N_placa;
@@ -49,7 +49,7 @@ public class FrmNuevoAutobus extends JFrame{
         setTitle("AUTOBUS....");
 	
         this.setLayout(new BorderLayout());
-        //this.setClosable(true);
+        this.setClosable(true);
         
         pnlCentral= new JPanel();
         pnlPie= new JPanel();

@@ -22,7 +22,7 @@ public class AutobusTest {
         //              INSERTAR
         int filasAfectadas =0;
         IAutobus autobusDao = new AutobusImpl();
-        Autobus autobus = new Autobus(2,"Patria","FRS756","Franco");
+        Autobus autobus = new Autobus(1,"Patria","FRS756","Franco");
         try{
             filasAfectadas = autobusDao.insertar(autobus);
             System.out.println("Autobus ingresado!!!\n");
