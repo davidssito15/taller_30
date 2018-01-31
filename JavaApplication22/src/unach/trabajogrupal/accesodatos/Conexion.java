@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package unach.trabajogrupal.accesodatos;
 
 import java.sql.Connection;
@@ -12,10 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-/**
- *
- * @author Segovia
- */
+
 public class Conexion {
 
    Connection con = null;
@@ -23,7 +16,7 @@ public class Conexion {
     public void conectar() {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            con = DriverManager.getConnection("jdbc:sqlserver://192.168.100.2:1433;databaseName=Transporte","sebas", "123");
+            con = DriverManager.getConnection("jdbc:sqlserver://172.30.56.60:1433;databaseName=Transporte","grupo6", "123");
         } catch (ClassNotFoundException e) {
             System.out.println("Error al cargar el driver: "
                     + e.getMessage());
