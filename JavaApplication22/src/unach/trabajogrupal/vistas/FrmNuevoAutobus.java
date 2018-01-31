@@ -49,6 +49,7 @@ public class FrmNuevoAutobus extends JFrame{
         setTitle("AUTOBUS....");
 	
         this.setLayout(new BorderLayout());
+        //this.setClosable(true);
         
         pnlCentral= new JPanel();
         pnlPie= new JPanel();
@@ -80,6 +81,8 @@ public class FrmNuevoAutobus extends JFrame{
         pnlCentral.add(lblPlaca);
         pnlCentral.add(txtPlaca);
         pnlCentral.add(lblChofer);
+        pnlCentral.add(txtChofer);
+        
         pnlPie.add(btnLimpiar);
         pnlPie.add(btnAceptar);
         

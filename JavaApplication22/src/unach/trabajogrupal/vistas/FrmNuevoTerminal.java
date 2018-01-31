@@ -15,7 +15,7 @@ import javax.swing.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
-public class FrmNuevoTerminal extends JFrame{
+public class FrmNuevoTerminal extends JInternalFrame{
     
        
     JLabel lblCodigo;
@@ -45,7 +45,7 @@ public class FrmNuevoTerminal extends JFrame{
         setTitle("TERMINAL....");
 	
         this.setLayout(new BorderLayout());
-        //this.setClosable(true);
+        this.setClosable(true);
         pnlCentral= new JPanel();
         pnlPie= new JPanel();
         pnlCentral.setLayout(new GridLayout(10, 2, 5, 5));

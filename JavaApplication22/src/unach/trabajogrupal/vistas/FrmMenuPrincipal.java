@@ -73,7 +73,7 @@ public class FrmMenuPrincipal extends JFrame {
         mniListaAutobus.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               // mniListeAutobusActionPerformed(e);
+               mniListaAutobusActionPerformed(e);
             }
         });
         
@@ -91,7 +91,7 @@ public class FrmMenuPrincipal extends JFrame {
         mniNuevoRegistro.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            //    mniNuevoRegistroActionPerformed(e);
+                mniNuevoRegistroActionPerformed(e);
             }
         });
         mniModificaRegistro= new JMenuItem("Modifica");
@@ -101,7 +101,7 @@ public class FrmMenuPrincipal extends JFrame {
         mniListaRegistro.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-             //   mniListaRegistroActionPerformed(e);
+             mniListaRegistroActionPerformed(e);
             }
         });
         
@@ -115,19 +115,25 @@ public class FrmMenuPrincipal extends JFrame {
         
         
         
-        mnTerminal=new JMenu("Terminal");
-        mniNuevoTerminal=new JMenuItem("Nuevo");
+          mnTerminal= new JMenu("Autobus");
+        mniNuevoTerminal= new JMenuItem("Nuevo");
         mniNuevoTerminal.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 mniNuevoTerminalActionPerformed(e);
-                }
+            }
+        });
+        mniModificaTerminal= new JMenuItem("Modifica");
+        mniEliminaTerminal= new JMenuItem("Elimina");
+        mniBuscaTerminal= new JMenuItem("Busca");
+        mniListaTerminal= new JMenuItem("Lista");
+        mniListaTerminal.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+              //  mniListaTerminalActionPerformed(e);
+            }
         });
         
-        mniModificaTerminal=new JMenuItem("Modifica");
-        mniEliminaTerminal=new JMenuItem("Elimina");
-        mniBuscaTerminal=new JMenu("Buscar");
-        mniListaTerminal=new JMenu("Lista");
         
         mnTerminal.add(mniNuevoTerminal);
         mnTerminal.add(mniModificaTerminal);
@@ -135,7 +141,6 @@ public class FrmMenuPrincipal extends JFrame {
         mnTerminal.addSeparator();
         mnTerminal.add(mniBuscaTerminal);
         mnTerminal.add(mniListaTerminal);
-        
                 
         
         mnbPrincipal.add(mnInicio);
@@ -152,17 +157,22 @@ public class FrmMenuPrincipal extends JFrame {
         this.setExtendedState(MAXIMIZED_BOTH); //Para maximizar
         this.setDefaultCloseOperation(EXIT_ON_CLOSE); //Para terminar el programa
     }
+    public void mniListaTerminlActionPerformed(ActionEvent e){
+        FrmListaTerminal frmD=new FrmListaTerminal();
+        dkpEscritorio.add(frmD);
+        frmD.setVisible(true);
+     } 
     
-//    public void mniListaDocenteActionPerformed(ActionEvent e){
-//        FrmListaDocente frmD=new FrmListaDocente();
-//        dkpEscritorio.add(frmD);
-//        frmD.setVisible(true);
-//     } 
-//    public void mniListaEstudianteActionPerformed(ActionEvent e){
-//        FrmListaEstudiante frmLE=new FrmListaEstudiante();
-//        dkpEscritorio.add(frmLE);
-//        frmLE.setVisible(true);
-//     }
+    public void mniListaRegistroActionPerformed(ActionEvent e){
+        FrmListaRegistro frm=new FrmListaRegistro();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+     } 
+    public void mniListaAutobusActionPerformed(ActionEvent e){
+        FrmListaAutobus frm=new FrmListaAutobus();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+     }
       
     
     public void mniNuevoTerminalActionPerformed(ActionEvent e){
@@ -170,11 +180,11 @@ public class FrmMenuPrincipal extends JFrame {
         dkpEscritorio.add(frmM);
         frmM.setVisible(true);
      }    
-//     public void mniNuevoRegistroActionPerformed(ActionEvent e){
-//        FrmNuevoRegistro frm = new FrmNuevoRegistro();
-//        dkpEscritorio.add(frm);
-//        frm.setVisible(true);
-//    }
+     public void mniNuevoRegistroActionPerformed(ActionEvent e){
+        FrmNuevoRegistro frm = new FrmNuevoRegistro();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+    }
     public void mniNuevoAutobusActionPerformed(ActionEvent e){
         FrmNuevoAutobus frm = new FrmNuevoAutobus();
         dkpEscritorio.add(frm);

@@ -1,9 +1,7 @@
-package ec.edu.unach.trabajogrupal.vistas;
-
-
-
+package unach.trabajogrupal.vistas;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,52 +14,70 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class FrmNuevoRegistro extends JInternalFrame{    
+    List<Autobus> lstAutobus;
+    JComboBox<Autobus> cmbAutobus;
+    
+    List<Terminal> lstTerminal;
+    JComboBox<Terminal> cmbTerminal;
+    
+    JLabel lblAutobus;
+    JLabel lblTerminal;
     JLabel lblFecha;
     JLabel lblHora;
+    
     JLabel lblTitulo0;
-   
+    
     
     JTextField txtFecha;
     JTextField txtHora;
     
    
-    
     JButton btnLimpiar;
     JButton btnAceptar;
     
     JPanel pnlCentral;
     JPanel pnlPie;
     public FrmNuevoRegistro() {
-        this.setSize(400, 400);
+        this.setSize(300, 300);
+        setTitle("REGISTRO....");
+	
         this.setLayout(new BorderLayout());
-        this.setClosable(true);
+        //this.setClosable(true);
         pnlCentral= new JPanel();
         pnlPie= new JPanel();
-        pnlCentral.setLayout(new GridLayout(11, 2, 5, 5));
+        pnlCentral.setLayout(new GridLayout(10, 2, 5, 5));
         pnlPie.setLayout(new GridLayout(1,2,5,5));
         
-        lblTitulo0 = new JLabel("Datos Registro");
+        lblTitulo0 = new JLabel("Datos del Registro");
         
+        lblAutobus= new JLabel("Autobus:");
+        lblTerminal= new JLabel("Terminal:");
         lblFecha= new JLabel("Fecha:");
         lblHora= new JLabel("Hora:");
-           
-       
- 
-
-        txtFecha= new JTextField(2);
+        
+        cargarAutobus();
+        cmbAutobus= new JComboBox(lstAutobus.toArray());
+        cargarTerminal();
+        cmbTerminal= new JComboBox(lstTerminal.toArray());
+        txtFecha = new JTextField(2);
         txtHora= new JTextField(2);
-             
-       
-               
+        
         btnLimpiar= new JButton("Limpiar");
         btnAceptar= new JButton("Aceptar");
         
+        pnlCentral.setBackground(Color.green);
+        
+        pnlCentral.add(lblAutobus);
+        pnlCentral.add(cmbAutobus);
+        pnlCentral.add(lblTerminal);
+        pnlCentral.add(cmbTerminal);
         pnlCentral.add(lblFecha);
         pnlCentral.add(txtFecha);
         pnlCentral.add(lblHora);
-        pnlCentral.add(txtHora);       
-      ;
-                   
+        pnlCentral.add(txtHora);
+        
+        
+                
         btnAceptar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -71,7 +87,8 @@ public class FrmNuevoRegistro extends JInternalFrame{
                     System.out.println("Error:"+ex.getMessage());
                 }
             }
-        });        
+        });
+        
         pnlPie.add(btnLimpiar);
         pnlPie.add(btnAceptar);
         
@@ -80,33 +97,54 @@ public class FrmNuevoRegistro extends JInternalFrame{
         this.add(pnlPie, BorderLayout.SOUTH);        
     }
     public static void main(String[] args) {
-        FrmNuevoRegistro frmMenu= new FrmNuevoRegistro();
-        frmMenu.setVisible(true);
-    }    
-    public void btnAceptarActionListener(ActionEvent e){
-        IRegistro registroDao = new RegistroImpl();
-        Registro registro = new Registro();
-       registro.setFecha(txtFecha.getText());
-        registro.setHora(txtHora.getText());
-      
-       
-     
-             
-              
+        FrmNuevoRegistro frm= new FrmNuevoRegistro();
+        frm.setVisible(true);
+    } 
+    public void cargarAutobus(){
+        IAutobus autobusDao = new AutobusImpl();
         try {
-            if(registroDao.insertar(registro)>0){
-                JOptionPane.showMessageDialog(this,"Guaradado correctamente!!",
-                "Transacción", JOptionPane.INFORMATION_MESSAGE);
-            }else{
-                JOptionPane.showMessageDialog(this,"Error desconocido!!",
-                "Transacción", JOptionPane.INFORMATION_MESSAGE);
-            }           
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this,"Error al guardar!!: " + ex.getMessage(),
-                "Error", JOptionPane.INFORMATION_MESSAGE);
+            lstAutobus = autobusDao.obtener();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this,"Error al cargar los cursos!!",
+                "Error"+e.getMessage(), JOptionPane.ERROR_MESSAGE);
         }
         
     }
     
+    public void cargarTerminal(){
+        ITerminal terminalDao = new TerminalImpl();
+        try {
+            lstTerminal = terminalDao.obtener();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this,"Error al cargar los cursos!!",
+                "Error"+e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        }
+        
+    }
+    
+    public void btnAceptarActionListener(ActionEvent e){
+        IRegistro registroDao=new RegistroImpl();
+        Registro registro =new Registro();
+
+        registro.setAutobus((Autobus)cmbAutobus.getSelectedItem());
+        registro.setTerminal((Terminal)cmbTerminal.getSelectedItem());
+       
+        registro.setFecha(txtFecha.getText());
+        registro.setHora(txtHora.getText());
+        
+        
+        try{
+            if(registroDao.insertar(registro)>0){
+                JOptionPane.showMessageDialog(this,"Guardado correctamente",
+                "transaccion", JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                JOptionPane.showMessageDialog(this,"Error desconocido",
+                "error", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }catch(Exception ex){
+             JOptionPane.showMessageDialog(this,"Error desconocido: "+ex.getMessage(),
+                    "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 }
  
