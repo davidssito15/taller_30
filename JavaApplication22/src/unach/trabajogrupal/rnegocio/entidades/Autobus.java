@@ -48,6 +48,9 @@ public class Autobus {
     public void setNom_Chofer(String Nom_Chofer) {
         this.Nom_Chofer = Nom_Chofer;
     }
-
+    @Override
+    public String toString(){
+        return NombreCompania;
+    }
    
 }

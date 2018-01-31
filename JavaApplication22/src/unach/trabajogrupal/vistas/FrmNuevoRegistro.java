@@ -13,7 +13,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
-public class FrmNuevoRegistro extends JFrame{    
+public class FrmNuevoRegistro extends JInternalFrame{    
     List<Autobus> lstAutobus;
     JComboBox<Autobus> cmbAutobus;
     
@@ -42,7 +42,7 @@ public class FrmNuevoRegistro extends JFrame{
         setTitle("REGISTRO....");
 	
         this.setLayout(new BorderLayout());
-        //this.setClosable(true);
+        this.setClosable(true);
         pnlCentral= new JPanel();
         pnlPie= new JPanel();
         pnlCentral.setLayout(new GridLayout(10, 2, 5, 5));
@@ -77,7 +77,6 @@ public class FrmNuevoRegistro extends JFrame{
         pnlCentral.add(txtHora);
         
         
-                
         btnAceptar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -94,19 +93,23 @@ public class FrmNuevoRegistro extends JFrame{
         
         this.add(lblTitulo0, BorderLayout.NORTH);
         this.add(pnlCentral, BorderLayout.CENTER);
-        this.add(pnlPie, BorderLayout.SOUTH);        
+        this.add(pnlPie, BorderLayout.SOUTH);   
+        this.setClosable(true);
     }
+    
     public static void main(String[] args) {
         FrmNuevoRegistro frm= new FrmNuevoRegistro();
         frm.setVisible(true);
     } 
+    
     public void cargarAutobus(){
         IAutobus autobusDao = new AutobusImpl();
         try {
             lstAutobus = autobusDao.obtener();
-        } catch (Exception e) {
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(this,"Error al cargar los Registros!!",
-                "Error"+e.getMessage(), JOptionPane.ERROR_MESSAGE);
+                "Error"+ex.getMessage(), JOptionPane.ERROR_MESSAGE);
+            
         }
         
     }
@@ -124,16 +127,16 @@ public class FrmNuevoRegistro extends JFrame{
     
     public void btnAceptarActionListener(ActionEvent e){
         IRegistro registroDao=new RegistroImpl();
-        Registro registro =new Registro();
+        Registro nregistro =new Registro();
 
-        registro.setAutobus((Autobus)cmbAutobus.getSelectedItem());
-        registro.setTerminal((Terminal)cmbTerminal.getSelectedItem());
-        registro.setFecha(txtFecha.getText());
-        registro.setHora(txtHora.getText());
+        nregistro.setAutobus((Autobus)cmbAutobus.getSelectedItem());
+        nregistro.setTerminal((Terminal)cmbTerminal.getSelectedItem());
+        nregistro.setFecha(txtFecha.getText());
+        nregistro.setHora(txtHora.getText());
         
         
         try{
-            if(registroDao.insertar(registro)>0){
+            if(registroDao.insertar(nregistro)>0){
                 JOptionPane.showMessageDialog(this,"Guardado correctamente",
                 "transaccion", JOptionPane.INFORMATION_MESSAGE);
             }else{

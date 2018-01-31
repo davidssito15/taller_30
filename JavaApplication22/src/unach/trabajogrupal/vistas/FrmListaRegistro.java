@@ -9,6 +9,7 @@ import java.util.List;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -17,18 +18,25 @@ public class FrmListaRegistro extends JInternalFrame{
     JLabel lblTitulo;
     JTable tabla;
     DefaultTableModel modelo;
+    JScrollPane jscTabla;
+    
     public FrmListaRegistro(){
         this.setSize(800, 600);
         this.setLayout(new BorderLayout());
         this.setClosable(true);
         lblTitulo = new JLabel("Listado Registro");
         tabla= new JTable();
+        jscTabla=new JScrollPane(tabla);
         this.add(lblTitulo, BorderLayout.NORTH);
         this.add(tabla, BorderLayout.CENTER);
+        this.add(jscTabla, BorderLayout.CENTER);
         cargarTabla();
     }
         public void cargarTabla(){
         modelo= new DefaultTableModel();
+        
+        modelo.addColumn("Autobus");
+        modelo.addColumn("Terminal");
         modelo.addColumn("Fecha");
         modelo.addColumn("Hora");
         
@@ -40,8 +48,9 @@ public class FrmListaRegistro extends JInternalFrame{
             JOptionPane.showMessageDialog(this, e.getMessage(), "Error",
                     JOptionPane.ERROR_MESSAGE);
         }
-        for(Registro est : lista){
-            modelo.addRow(new Object[]{ est.getFecha(), est.getHora(),toString()});
+        for(Registro r : lista){
+            modelo.addRow(new Object[]{ r.getAutobus().getCod_bus(),
+        r.getTerminal().getCod_terminal(),r.getFecha(),r.getHora()});
         }
         tabla.setModel(modelo);
     }

@@ -58,5 +58,9 @@ public class Terminal {
     public void setTelefono(String Telefono) {
         this.Telefono = Telefono;
     }
+    @Override
+    public String toString(){
+        return Nombre;
+    }
 
 }
