@@ -4,6 +4,7 @@ import unach.trabajogrupal.rnegocio.dao.*;
 import unach.trabajogrupal.rnegocio.impl.*;
 import unach.trabajogrupal.rnegocio.entidades.*;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JInternalFrame;
@@ -21,16 +22,18 @@ public class FrmListaRegistro extends JInternalFrame{
     JScrollPane jscTabla;
     
     public FrmListaRegistro(){
-        this.setSize(800, 600);
+        this.setSize(800, 300);
         this.setLayout(new BorderLayout());
         this.setClosable(true);
-        lblTitulo = new JLabel("Listado Registro");
-        tabla= new JTable();
+        setTitle("REGISTRO....");
+        lblTitulo = new JLabel("                                          Listado de Registro...");
+        
+        tabla=new JTable();
         jscTabla=new JScrollPane(tabla);
-        this.add(lblTitulo, BorderLayout.NORTH);
-        this.add(tabla, BorderLayout.CENTER);
-        this.add(jscTabla, BorderLayout.CENTER);
+        this.add(lblTitulo,BorderLayout.NORTH);
+        this.add(jscTabla,BorderLayout.CENTER);
         cargarTabla();
+        
     }
         public void cargarTabla(){
         modelo= new DefaultTableModel();

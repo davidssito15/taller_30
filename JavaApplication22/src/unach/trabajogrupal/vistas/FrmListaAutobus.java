@@ -17,11 +17,11 @@ public class FrmListaAutobus  extends JInternalFrame{
     JScrollPane jacTabla;
 
     public FrmListaAutobus() {
-         this.setSize(800, 600);
+         this.setSize(800, 300);
         setTitle("AUTOBUS....");
         this.setLayout(new BorderLayout());
         this.setClosable(true);
-        lblTitulo=new JLabel("Listado de AUTOBUS.");
+        lblTitulo=new JLabel("                                                  Listado del Autobus....");
         tabla=new JTable();
         jacTabla=new JScrollPane(tabla);
         this.add(lblTitulo,BorderLayout.NORTH);

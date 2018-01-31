@@ -17,11 +17,11 @@ public class FrmListaTerminal extends JInternalFrame{
     JScrollPane jacTabla;
     
     public FrmListaTerminal(){    
-        this.setSize(800, 600);
+        this.setSize(800, 300);
         setTitle("TERMINAL....");
         this.setLayout(new BorderLayout());
         this.setClosable(true);
-        lblTitulo=new JLabel("Listado de TERMINAL.");
+        lblTitulo=new JLabel("                                                  Listado de Terminal...");
         tabla=new JTable();
         jacTabla=new JScrollPane(tabla);
         this.add(lblTitulo,BorderLayout.NORTH);
